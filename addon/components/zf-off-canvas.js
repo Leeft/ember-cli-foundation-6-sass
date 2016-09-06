@@ -11,6 +11,22 @@ export default Ember.Component.extend(zfWidget, {
   /** @member Class names */
   classNames: ['off-canvas-wrapper'],
 
+  /** @member Left off canvas class names */
+  leftClassNames: ['off-canvas','position-left'],
+
+  /** @member Right off canvas class names */
+  rightClassNames: ['off-canvas','position-right'],
+
+  concatenatedProperties: ['leftClassNames', 'rightClassNames'],
+
+  leftClasses: Ember.computed( 'leftClassNames.[]', function() {
+    return this.get('leftClassNames').join(' ');
+  }),
+
+  rightClasses: Ember.computed( 'rightClassNames.[]', function() {
+    return this.get('rightClassNames').join(' ');
+  }),
+
   /** @member Makes the data attribute binding appear */
   'off-canvas-wrapper': '',
 
